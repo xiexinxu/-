@@ -1,0 +1,37 @@
+#include<stdio.h>
+
+double roundarea(double r){
+
+	double sum=r*r*3.14;
+	return sum ;
+	
+	
+	
+	
+}
+
+
+
+
+
+
+int main()
+{
+	
+double area1=roundarea(6.8);
+double area2=roundarea(9);
+
+if(area1>area2){
+	printf("the first round is big");
+}
+else if(area1==area2){
+	
+	printf("two round is smilair");
+	
+}
+else{
+	printf("the second round is big");
+	
+}
+return 0;
+}
