@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+
+int main(){
+srand(time(NULL));
+int number=rand()%200+1;
+int guess=0;
+int i=0;
+while(1){
+i++;
+	printf("the numbr is:\n");
+	scanf("%d",&guess);
+	if(guess>number){
+		printf("the number is big\n");
+	
+		
+		
+	}
+	else if(guess<number){
+		printf("the number is small\n");
+	
+		
+	}
+	else {
+		printf("ringht\n");
+
+		break;
+	}
+
+}
+printf(" you use %dpionts to guess it\n",i);
+return 0;
+
+}
+
+
+
+
+
