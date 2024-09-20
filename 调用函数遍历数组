@@ -1,0 +1,21 @@
+#include<stdio.h>  
+void printarr(int arr[],int len);
+int main() {  
+   
+   int arr[]={1,2,3,4,56,7,8,89,9,55,2,34,4,5,445,4};
+   
+     int len=sizeof(arr)/sizeof(arr[0]);
+     
+   printarr(arr,len);
+   return 0;
+   
+   
+}
+
+void printarr(int arr[],int len){
+
+for(int i=0;i<len;i++){
+	printf("%d\n",arr[i]);
+}
+
+}
