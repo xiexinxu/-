@@ -1,0 +1,13 @@
+#include<stdio.h>  
+
+int main() {  	
+int arr[]={1,2,34,54,5,6,54,66,64,64,46,6,46,4,6,46,6,};
+int* p=arr;
+int num=sizeof(arr)/sizeof(int);
+for(int i=0;i<num;i++){
+	printf("%d\n",*p++);
+	}
+return 0;
+
+}
+
