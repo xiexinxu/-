@@ -1,0 +1,51 @@
+#include<stdio.h>  
+int plus(int num1,int num2){
+	
+	return num1+num2;
+}
+int  subtract(int num1,int num2){
+	
+	return num1-num2;
+}
+int  mutiply(int num1,int num2){
+	
+	return num1*num2;
+}
+int  divide(int num1,int num2){
+	if(num2!=0){
+	
+	return num1/num2;}
+	else {
+		printf("no answer");
+		return 0;
+}
+}
+int mod(int num1,int num2){
+	if(num2!=0){
+	
+	return num1%num2;}
+	else {
+		printf("no answer");
+		return 0;
+}
+}
+
+	int main(){  
+	
+	int(*arr[5])(int,int)={plus,subtract,mutiply,divide,mod};
+	int num1=0;
+	int num2=0;
+	printf("give two number");
+	scanf("%d %d",&num1,&num2);
+	int choose=0;
+	printf("1 is plus\n");
+	printf("2 is subtract\n");
+    printf("3 is mutiply\n");	
+    printf("4 is divide\n");
+	printf("5 is mod\n");
+	printf("one number:\n");
+	scanf("%d",&choose);
+	int res=(arr[choose-1])(num1,num2);
+	printf("%d",res);
+	return 0;
+}
