@@ -1,0 +1,97 @@
+#include <stdio.h>  
+#include <ctype.h>  
+#include <string.h>  
+#include <stdlib.h>  
+
+#define MAX_CHAR 256
+int is_palindrome(const char *word) {
+    int left = 0; 
+    int right = strlen(word) - 1; 
+    while (left < right) { 
+       
+        while (!isalpha(word[left]) && left < right) {
+            left++;
+        }
+        while (!isalpha(word[right]) && right > left) {
+            right--;
+        }
+
+        
+        if (tolower(word[left]) != tolower(word[right])) {
+            return 0 ;
+        }
+        left++; 
+        right--; 
+    }
+
+    return 1; 
+}
+
+int main() {
+  printf("give the group:");
+  char str[100]={0};
+  int str1[26]={0};
+ 
+  fgets(str,sizeof(str),stdin);
+ 
+  for(int i=0;str[i]!='\0';i++){
+  	if(isalpha(str[i])){
+  	char lowerchar=towlower(str[i]);
+	 str1[lowerchar-'a']++; 
+	  }
+  } 
+  
+  printf("letter\n");
+  for(int i=0;i<26;i++){
+  	if(str1[i]>0){
+  		printf("%c: %d\n",'a'+i,str1[i]);
+  	}
+  }
+      int len = strlen(str);
+    int maxlen = 0;  
+    int current_length = 0;  
+    int start = 0;  
+    int i = 0;  
+    printf("the longgest word is:");
+    while (i < len) {
+        
+        while (i < len && (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')) {
+            i++;
+        }
+        int j = i;
+    
+        while (j < len && str[j] != ' ' && str[j] != '\n' && str[j] != '\t') {
+            current_length++;
+            j++;
+        }
+        if (current_length > maxlen) {  
+            maxlen = current_length;
+            start = i;
+        }
+        current_length = 0;  
+        i = j + 1;
+    }
+      if (maxlen > 0) {
+        for (int k = 0; k < maxlen; k++) {
+            putchar(str[start + k]);
+        }
+        printf("\n");
+    } else {
+        printf("No words found.\n");
+    }
+int k=0;
+     printf("huiwen:");  
+    char *word = strtok(str, " ,.-"); 
+    while (word != NULL) {  
+        if (is_palindrome(word)) {  
+            printf("%s\n", word);  
+            k=1;
+        }
+        word = strtok(NULL, " ,.-"); 
+		
+    }if(k!=1){
+	
+printf("No hui wen shu");
+}
+    return 0;  
+}
