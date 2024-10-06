@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <ctype.h> 
+
+#define MAX_CHAR 256 
+
+int main() {
+  printf("give the group:");
+  char str[100]={0};
+  int str1[26]={0};
+  int str2[10]={0};
+ 
+  fgets(str,sizeof(str),stdin);
+ 
+  for(int i=0;str[i]!='\0';i++){
+  	if(isalpha(str[i])){
+  	char lowerchar=towlower(str[i]);
+	 str1[lowerchar-'a']++;
+	  }
+  
+  		else if(isdigit(str[i]))
+		  {
+  		 str2[str[i]-'0']++;
+  			}
+  	  }
+  	printf("letter\n");
+  	  for(int i=0;i<=26;i++){
+  	  	if(str1[i]>0){
+  	  		printf("%c: %d\n",'a'+i,str1[i]);
+			}
+		}
+		printf("number\n");
+  	for(int i=0;i<10;i++){
+  		if(str2[i]>0){
+  			printf("%d: %d\n",i,str2[i]);
+		  }
+	  }
+  	return 0;
+  	
+  }
