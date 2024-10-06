@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[1000];  
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);  
+    int len = strlen(str);
+    int maxlen = 0;  
+    int current_length = 0;  
+    int start = 0;  
+    int i = 0;  
+    while (i < len) {
+        
+        while (i < len && (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')) {
+            i++;
+        }
+        int j = i;
+    
+        while (j < len && str[j] != ' ' && str[j] != '\n' && str[j] != '\t') {
+            current_length++;
+            j++;
+        }
+        if (current_length > maxlen) {  
+            maxlen = current_length;
+            start = i;
+        }
+        current_length = 0;  
+        i = j + 1;
+    }
+    if (maxlen > 0) {
+        for (int k = 0; k < maxlen; k++) {
+            putchar(str[start + k]);
+        }
+        printf("\n");
+    } else {
+        printf("No words found.\n");
+    }
+
+    return 0;
+}
