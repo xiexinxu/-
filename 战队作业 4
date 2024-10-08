@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+ char str[1000];
+ printf("give word:");
+ fgets(str,(unsigned char)str,stdin);
+  str[strcspn(str, "\n")] = 0;
+ char word[100];
+ printf("the word you find:");
+  fgets(word,(unsigned char)word,stdin);
+  word[strcspn(word, "\n")] = 0;
+char* find=NULL;
+find=strstr(str,word);
+
+if(find!=NULL){
+	printf("the word you find is here:%s\n",find);
+}	
+	else{
+		printf("no this word");
+	}
+ if(find != NULL) {
+        char change[100];
+        printf("the word you change:");
+        fgets(change, sizeof(change), stdin);
+        change[strcspn(change, "\n")] = 0;
+        strcpy(find,change);
+        printf("After change: %s\n", str);
+} 
+	return 0;}
+  
+
+
