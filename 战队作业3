@@ -1,0 +1,32 @@
+#include <stdio.h>  
+#include <string.h>  
+#include <ctype.h>   
+
+int main(){
+	char str[100];
+	printf("give words:");
+	 fgets(str, sizeof(str), stdin);
+	 int length=strlen(str);
+	int count=0;
+	int inword=0; 
+	 for(int i=0;i<length;i++){
+	 	   if (isalnum((unsigned char)str[i])){
+	 		if(!inword){
+	 			inword=1;
+	 			count++;
+			 }
+		 }
+		 else {
+		 	inword=0;
+		 }
+	 	
+		 }
+	 	
+	 	printf("%d",count);
+	 	
+	 	return 0;
+	 	
+	 	
+	 	
+	 }
+	
