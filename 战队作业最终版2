@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+
+int main(){
+    char str[1000];
+    printf("give word:");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = 0;
+    int length = strlen(str);
+    int count = 0;
+    int inword = 0; 
+    for(int i = 0; i < length; i++){
+        if (isalnum((unsigned char)str[i])){
+            if(!inword){
+                inword = 1;
+                count++;
+            }
+        }
+        else {
+            inword = 0;
+        }
+    }
+    printf("The number of words is: %d\n", count);
+
+    int j = 0;
+    for(int i = 0; i < length; i++){
+        if(str[i] >= '0' && str[i] <= '9'){
+            printf("%c\n", str[i]);
+            j = 1;
+        }
+    }
+    if(j == 0)
+    {
+        printf("no numbers\n");
+    }
+
+    char word1[100];  
+    printf("the word you find:  ");  
+    fgets(word1, sizeof(word1), stdin);  
+    word1[strcspn(word1, "\n")] = 0;  
+
+    char* find = strstr(str, word1);  
+    if (find != NULL) {  
+        // 确保找到的是一个完整单词  
+        if ((find == str || !isalnum((unsigned char)*(find - 1))) &&   
+            (!isalnum((unsigned char)*(find + strlen(word1))))) {  
+            printf("the word you find is here: %s\n", find);  
+
+            char change[100];  
+            printf("the word you change: ");  
+            fgets(change, sizeof(change), stdin);  
+            change[strcspn(change, "\n")] = 0; // 消除换行符  
+
+            // 替换逻辑  
+            if (strlen(change) <= strlen(word1)) {  
+                // 使用 `strncpy` 进行安全替换  
+                strncpy(find, change, strlen(change));  
+                // 处理字符结束  
+                memset(find + strlen(change), '\0', strlen(word1) - strlen(change));  
+                printf("After change: %s\n", str);
+            } else {  
+                printf("The new word is too long to replace the original word.\n");  
+            }  
+        } else {  
+            printf("Found the word, but it is not a complete word (may be part of another).\n");  
+        }  
+    } else {  
+        printf("no this word\n");  
+    }  
+
+    return 0;  
+}
+	
+	
+
