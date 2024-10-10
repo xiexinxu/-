@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<string.h>
+
+struct student {
+    char name[1000];
+    int stunum;
+    int score;
+};
+
+int main() {
+    int n;
+    scanf("%d", &n); // 读取学生的数量
+    struct student stu[n]; // 创建一个学生数组
+    int i = 0;
+if(i!=-1){
+
+    for (i = 0; i < n; i++) { // 循环读取每个学生的信息
+        printf(" the student's name is : \n");
+        scanf("%s", stu[i].name); // 读取学生的姓名
+        printf(" the student's stunum is: \n");
+        scanf("%d", &stu[i].stunum); // 读取学生的学号
+        printf(" the student's score is: \n");
+        scanf("%d", &stu[i].score); // 读取学生的分数
+    }
+  }
+  else{
+  	return 0;
+  }
+  for(int a=0;a<n;a++){
+  	
+   printf(" the student's name is :%s \n",stu[a].name);
+    printf(" the student's stunum is: %d\n", &stu[a].stunum);
+   	  printf(" the student's score is: %d \n",&stu[a].score);
+  	
+  }
+   int sum = 0; // 初始化总分数为0
+    for (int i = 0; i < n; i++) { // 循环累加每个学生的成绩
+        sum += stu[i].score;
+    }
+    float average = (float)sum / n; // 计算平均分，使用浮点数以保持精度
+    printf("The average score is: %.2f\n", average);
+  int max = 0;
+    int min = 0; 
+    for (int i = 0; i < n; i++) {
+        if (stu[max].score < stu[i].score) {
+            max = i;
+        }
+        if (stu[min].score > stu[i].score) {
+            min = i;
+        }
+    }
+    printf("The max score is: %d (%s)\n", stu[max].score, stu[max].name);
+    printf("The min score is: %d (%s)\n", stu[min].score, stu[min].name);
+
+    return 0;
+  
+  
+
+}
+  
+  
