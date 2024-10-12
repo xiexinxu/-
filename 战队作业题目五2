@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+int numbersum(int str[],int i,int j){
+	int sum=0;
+	for(int k=i;k<=j;k++){
+		sum=str[k]+sum;
+		
+		
+		
+		
+	}
+	
+	return sum;
+	
+}
+int main() {
+  printf("give number: ");
+    int n = 0;
+    scanf("%d", &n);
+    int str[100];
+    printf("give the number group: ");
+    for(int i=0;i<n;i++){//录入数组
+    	scanf("%d",&str[i]);
+		}
+		int max=-1000;
+		int maxi=0;
+		int maxj=0;
+		int t;
+for(int i=0;i<n;i++){
+	for(int j=i;j<n;j++){
+		  if ((t = numbersum(str, i, j)) > max){
+			max=t;
+			maxi=i;
+			maxj=j;
+		}
+		
+	}
+}
+printf("the biggest sum is %d\n",max);
+printf("the biggest number group are: ");
+for(int a=maxi;a<=maxj;a++){
+	printf(" %d",str[a]);
+	
+}
+printf("\nthe beginning: %d",maxi);
+printf("\nthe ending: %d",maxj);
+
+return 0;
+   
+   
+   
+}
+
+
+
+
