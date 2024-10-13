@@ -1,46 +1,39 @@
 #include<stdio.h>
 #include<string.h>
+
 int main(){
-	printf("give the number group's length: ");
-	int n=0;
-	scanf("%d",&n);
-getchar(); // 吸收换行符
-    printf("give number group's word: ");
-	 char str[n + 1];// 加1为了存储字符串的结束符 '\0'
-fgets(str, sizeof(str), stdin);
- str[strcspn(str, "\n")] = 0;  
-char* words[n];
-int wordcount=0;
-  char* p = strtok(str, " ");
-int count[n];
-memset(count, 0, sizeof(count));
-while(p!=NULL){
-	words[wordcount]=p;
-	wordcount++;
-	  p = strtok(NULL, " ");
-}
-for(int i=0;i<wordcount;i++){
-	for(int j=0;j<i;j++){
-		if(strcmp(words[i],words[j])==0){
-			count[j]++;
-			
-			break;
+ printf("give number: ");
+    int n = 0;
+    scanf("%d", &n);
+    int str[100];
+     int count[100] = {0}; // 初始化计数数组
+    printf("give the number group: ");
+    printf("repeated numbers: ");
+    for(int i=0;i<n;i++){//录入数组
+    	scanf("%d",&str[i]);
+		}
+		for(int j=0;j<n;j++){
+			for(int b=j+1;b<n;b++){
+				if(str[j]==str[b]){
+				 count[str[j]]++;
+			}
 		}
 	}
-	
-	count[i]++;
-	
-}
-
-    for (int i = 0; i < wordcount; i++) {  
-        if (count[i] > 1) {  
-            printf("number: %s, number's count: %d\n", words[i], count[i]);  
+printf("repeated number:\n");  
+    // 打印重复的数字及其出现的次数  
+    for (int c = 0; c < n; c++) {  
+        if (count[str[c]] > 0) {  
+            // 打印数字及其出现次数，并将计数设为-1以避免重复打印  
+            printf("%d appear %d times\n", str[c], count[str[c]] + 1); // +1 是因为要计算第一次出现  
+            count[str[c]] = -1; // 标记该数字为已处理  
         }  
     }  
-
-    return 0;  
-}  
-
+	
+	
+	
+	
+}
+		
 
 
 
