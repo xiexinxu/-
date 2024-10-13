@@ -1,0 +1,242 @@
+#include<stdio.h>
+#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+int numbersum(int str[],int i,int j){
+	int sum=0;
+	for(int k=i;k<=j;k++){
+		sum=str[k]+sum;
+			}
+		return sum;
+	}
+int main(){
+ printf("give number: ");
+    int n = 0;
+    scanf("%d", &n);
+    int str[100];
+     int count[100] = {0}; // 初始化计数数组
+    printf("give the number group: ");
+    printf("repeated numbers: ");
+    for(int i=0;i<n;i++){//录入数组
+    	scanf("%d",&str[i]);
+		}
+		for(int j=0;j<n;j++){
+			for(int b=j+1;b<n;b++){
+				if(str[j]==str[b]){
+				 count[str[j]]++;
+			}
+		}
+	}
+printf("repeated number:\n");  
+    // 打印重复的数字及其出现的次数  
+    for (int c = 0; c < n; c++) {  
+        if (count[str[c]] > 0) {  
+            // 打印数字及其出现次数，并将计数设为-1以避免重复打印  
+            printf("%d appear %d times\n", str[c], count[str[c]] + 1); // +1 是因为要计算第一次出现  
+            count[str[c]] = -1; // 标记该数字为已处理  
+        }  
+    }  
+			int max=-1000;
+		int maxi=0;
+		int maxj=0;
+		int t;
+for(int i=0;i<n;i++){
+	for(int j=i;j<n;j++){
+		  if ((t = numbersum(str, i, j)) > max){
+			max=t;
+			maxi=i;
+			maxj=j;
+		}
+		
+	}
+}
+printf("the biggest sum is %d\n",max);
+printf("the biggest number group are: ");
+for(int a=maxi;a<=maxj;a++){
+	printf(" %d",str[a]);
+	
+}
+printf("\nthe beginning: %d",maxi+1);
+printf("\nthe ending: %d",maxj+1);
+int k;
+int i;
+int j;
+printf("give the k number: ");
+
+scanf("%d",&k);
+
+if(k>n){
+	printf("k is too big");
+	return 1;
+}
+for(i=0,j=n-k-1;i<j;i++,j--){//将第1个数与的n-k-1个数进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+  for(i=n-k,j=n-1;i<j;i++,j--){//将第n-k个数与的n-1个数进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+   for(i=0,j=n-1;i<j;i++,j--){//将整个数组进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+
+printf("answer is: ");
+  for(i=0;i<n;i++){//输出反转后的数组
+  	printf("%d ",str[i]);
+  }
+
+int numbersum(int str[],int i,int j){
+	int sum=0;
+	for(int k=i;k<=j;k++){
+		sum=str[k]+sum;
+			}
+		return sum;
+		}
+int main(){
+ printf("give number: ");
+    int n = 0;
+    scanf("%d", &n);
+    int str[100];
+     int count[100] = {0}; // 初始化计数数组
+    printf("give the number group: ");
+    printf("repeated numbers: ");
+    for(int i=0;i<n;i++){//录入数组
+    	scanf("%d",&str[i]);
+		}
+		for(int j=0;j<n;j++){
+			for(int b=j+1;b<n;b++){
+				if(str[j]==str[b]){
+				 count[str[j]]++;
+			}
+		}
+	}
+printf("repeated number:\n");  
+    // 打印重复的数字及其出现的次数  
+    for (int c = 0; c < n; c++) {  
+        if (count[str[c]] > 0) {  
+            // 打印数字及其出现次数，并将计数设为-1以避免重复打印  
+            printf("%d appear %d times\n", str[c], count[str[c]] + 1); // +1 是因为要计算第一次出现  
+            count[str[c]] = -1; // 标记该数字为已处理  
+        }  
+    }  
+			int max=INT_MIN;;
+		int maxi=0;
+		int maxj=0;
+		int t;
+for(int i=0;i<n;i++){
+	for(int j=i;j<n;j++){
+		  if ((t = numbersum(str, i, j)) > max){
+			max=t;
+			maxi=i;
+			maxj=j;
+		}
+		
+	}
+}
+printf("the biggest sum is %d\n",max);
+printf("the biggest number group are: ");
+for(int a=maxi;a<=maxj;a++){
+	printf(" %d",str[a]);
+	
+}
+printf("\nthe beginning: %d",maxi+1);
+printf("\nthe ending: %d",maxj+1);
+int k;
+int i;
+int j;
+printf("give the k number: ");
+
+scanf("%d",&k);
+
+if(k>n){
+	printf("k is too big");
+	return 1;
+}
+for(i=0,j=n-k-1;i<j;i++,j--){//将第1个数与的n-k-1个数进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+  for(i=n-k,j=n-1;i<j;i++,j--){//将第n-k个数与的n-1个数进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+   for(i=0,j=n-1;i<j;i++,j--){//将整个数组进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+
+printf("answer is: \n");
+  for(i=0;i<n;i++){//输出反转后的数组
+  	printf("%d ",str[i]);
+  }
+printf("give the k number: \n");
+
+scanf("%d",&k);
+
+if(k>n){
+	printf("k is too big");
+	return 1;
+}
+for(i=0,j=n-k-1;i<j;i++,j--){//将第1个数与的n-k-1个数进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+  for(i=n-k,j=n-1;i<j;i++,j--){//将第n-k个数与的n-1个数进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+   for(i=0,j=n-1;i<j;i++,j--){//将整个数组进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+
+printf("answer is: \n");
+  for(i=0;i<n;i++){//输出反转后的数组
+  	printf("%d ",str[i]);
+  }
+printf("give the k number: \n");
+scanf("%d",&k);
+
+if(k>n){
+	printf("k is too big");
+	return 1;
+}
+for(i=0,j=n-k-1;i<j;i++,j--){//将第1个数与的n-k-1个数进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+  for(i=n-k,j=n-1;i<j;i++,j--){//将第n-k个数与的n-1个数进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+   for(i=0,j=n-1;i<j;i++,j--){//将整个数组进行反转
+t=str[i];
+str[i]=str[j];
+str[j]=t;
+}
+
+printf("answer is: \n");
+  for(i=0;i<n;i++){//输出反转后的数组
+  	printf("%d ",str[i]);
+  }
+     return 0;
+}
+
+
+
+
+
+
