@@ -1,0 +1,91 @@
+#include<iostream>
+#include<string>
+
+class Employee {
+private:
+	
+	std::string name[1000];
+	int age[1000];
+	std::string position[1000];
+	public:
+		void chushihua(int n) {
+			for (int i = 0; i < n; i++) {
+				std::cout << "请输入员工姓名：" ;
+				std::cin>> name[i];
+				std::cout << "请输入员工年龄：";
+				std::cin >> age[i];
+				std::cout << "请输入员工职位：";
+				std::cin >> position[i];
+			}
+		}
+		std::string getPosition(int n,int j) {
+			if (j < n) {
+				std::cout << "返回成功\n";
+				return  position[j];
+				
+			}
+			else {
+				std::cout << "检索超出范围";
+			}
+			
+		}
+		void updateInfo(int n,int j) {
+			if (j < n) {
+				std::cout << "请输入更新后员工姓名：";
+				std::cin >> name[j];
+				std::cout << "请输入更新后员工年龄：";
+				std::cin >> age[j];
+				std::cout << "请输入更新后员工职位：";
+				std::cin >> position[j];
+			}
+			else {
+				std::cout << "查无此人";
+			}
+			
+		}
+		void displayInfo(int n) {
+			for (int i = 0; i < n; i++) {
+				std::cout << "员工姓名：";
+				std::cout << name[i]<<"\n";
+				std::cout << "员工年龄：";
+				std::cout << age[i]<<"\n";
+				std::cout << "员工职位：";
+				std::cout <<position[i]<<"\n";
+			}
+		}
+};
+int main() {
+	int n = 0;
+	std::cout << "请输入员工人数：" ;
+	std::cin >> n;
+	int choice = 0;
+Employee emp;
+	while(1){
+		std::cout << "请输入你的选择（1表示初始化，2表示返回，3表示更新，4表示显示,5表示退出系统）：";
+		std::cin >> choice;
+		if(choice==1){
+		
+			emp.chushihua (n);
+		}
+		if (choice == 2) {
+			int index;
+			std::cout << "请输入你的检索：";
+			std::cin>> index;
+			emp.getPosition(n,index-1);
+		}
+		if (choice == 3) {
+			int index;
+			std::cout << "请输入你的检索：";
+			std::cin >> index;
+			emp.updateInfo(n, index-1);
+		}
+		if (choice == 4) {  
+			
+			emp.displayInfo(n);
+		}
+		if (choice == 5) {
+			break;
+		}
+	}
+}
+
