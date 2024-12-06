@@ -1,0 +1,47 @@
+#include<iostream>
+#include<string>
+class shape {
+private:
+	std::string color;
+public:
+	shape() {
+		std::cout << "请输入颜色:";
+		std::cin >> color;
+	}
+	void virtual displayColor() {
+		
+		std::cout << "shape的颜色是:" << color<<"\n";
+	}
+	~shape() {
+	}
+
+};
+class Rectangle:public shape {
+private:
+	double width=0;
+	double   height=0;
+public:
+	Rectangle() {
+   std::cout << "请输入矩形的宽度:";
+		std::cin >> width;
+		std::cout << "请输入矩形的长度:";
+		std::cin >> height;
+	}
+	double calculaterArea(){
+		double sum = width * height;
+		return sum;
+	}
+	void displayColor() override {
+		shape::displayColor();
+		std::cout << "矩形的面积是：" << calculaterArea()<<"\n";
+	}
+	~Rectangle() {
+	
+	}
+
+};
+
+int main(){
+	Rectangle s;
+	s.displayColor();
+}
